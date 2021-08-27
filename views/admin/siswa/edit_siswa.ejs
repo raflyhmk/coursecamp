@@ -1,0 +1,105 @@
+<div
+  class="tab-pane fade show active"
+  id="edit-siswa"
+  role="tabpanel"
+  aria-labelledby="profile-tab"
+>
+  <div class="card shadow mb-4 mt-2">
+    <div class="card-body">
+      <form
+        action="/admin/siswa/<%= siswa.id %>?_method=PUT"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div class="form-group">
+          <label for="name">foto</label>
+          <input type="file" class="form-control" name="image" required />
+          <span>pilih gambar untuk edit gambar</span>
+        </div>
+        <div class="form-group">
+          <label for="name">nama</label>
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            value="<%= siswa.name %>"
+            placeholder="masukan nama lengkap"
+            autocomplete="off"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="name">jenis kelamin</label>
+          <% if(siswa.JenisKelamin == "pria") { %>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="JenisKelamin"
+              value="pria"
+              checked
+            />
+            <label class="form-check-label"> pria </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="JenisKelamin"
+              value="wanita"
+            />
+            <label class="form-check-label">wanita</label>
+          </div>
+          <% }else { %>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="JenisKelamin"
+              value="pria"
+            />
+            <label class="form-check-label"> pria </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="JenisKelamin"
+              value="wanita"
+              checked
+            />
+            <label class="form-check-label">wanita</label>
+          </div>
+          <% } %>
+        </div>
+        <div class="form-group">
+          <label for="name">kursus</label>
+          <select class="form-control" name="nameKursus">
+            <option value="<%= siswa.nameKursus %>">
+              -----<%= siswa.nameKursus %>-----
+            </option>
+            <% for(let i = 0; i < kursus.length; i++) { %>
+            <option value="<%= kursus[i].name %>"><%= kursus[i].name %></option>
+            <% } %>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="name">tanggal lahir</label>
+          <input
+            type="date"
+            class="form-control"
+            name="TanggalLahir"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="name">alamat</label>
+          <textarea class="form-control" name="alamat">
+<%= siswa.alamat %></textarea
+          >
+        </div>
+        <button type="submit" class="btn btn-primary">save</button>
+      </form>
+    </div>
+  </div>
+</div>

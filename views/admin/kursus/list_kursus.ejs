@@ -1,0 +1,59 @@
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary text-capitalize">
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#add-kursus"
+      >
+        tambah kursus
+      </button>
+    </h6>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table
+        class="table table-bordered"
+        id="dataTable"
+        width="100%"
+        cellspacing="0"
+      >
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Kursus</th>
+            <th>Tagihan Perbulan</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i = 0; i < kursus.length; i++){ %>
+          <tr>
+            <td><%= i + 1 %></td>
+            <td><%= kursus[i].name %></td>
+            <td>Rp.<%= kursus[i].TagihanPerBulan %></td>
+            <td>
+              <form action="/admin/kursus/<%= kursus[i].id %>?_method=DELETE" method="POST">
+              <a
+                href="javascript:void()"
+                type="button"
+                class="btn btn-circle btn-warning btn-sm btn-edit"
+                  data-id="<%= kursus[i].id %>"
+                data-name="<%= kursus[i].name %>"
+                data-tagihan="<%= kursus[i].TagihanPerBulan %>"
+                ><i class="fas fa-edit"></i
+              ></a>
+              <button type="submit" class="btn btn-circle btn-danger btn-sm"
+                ><i class="fas fa-trash"></i
+              ></button>
+            </td>
+            </form>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

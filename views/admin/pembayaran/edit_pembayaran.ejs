@@ -1,0 +1,94 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="edit-pembayaran"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">edit pembayaran</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/admin/pembayaran?_method=PUT" method="POST">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="name">nama siswa</label>
+            <input
+              type="text"
+              class="form-control name"
+              id="name"
+              name="name"
+              required
+              autocomplete="off"
+            />
+          </div>
+          <div class="form-group">
+            <label for="TanggalPembayaran">tanggal bayar</label>
+            <input
+              type="date"
+              class="form-control"
+              id="TanggalPembayaran"
+              name="TanggalPembayaran"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">pembayaran bulan</label>
+            <select class="form-control PembayaranBulan" name="PembayaranBulan">
+              <option value="">-----bulan-----</option>
+              <option value="januari">januari</option>
+              <option value="februari">februari</option>
+              <option value="maret">maret</option>
+              <option value="april">april</option>
+              <option value="mei">mei</option>
+              <option value="juni">juni</option>
+              <option value="juli">juli</option>
+              <option value="agustus">agustus</option>
+              <option value="september">september</option>
+              <option value="oktober">oktober</option>
+              <option value="november">november</option>
+              <option value="desember">desember</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="name">kursus</label>
+            <select class="form-control nameKursus" name="nameKursus">
+              <option value="">-----pembayaran kursus-----</option>
+              <% for(let i = 0; i < kursus.length; i++) { %>
+              <option value="<%= kursus[i].name %>">
+                <%= kursus[i].name %>
+              </option>
+              <% } %>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="jumlahPembayaran">Jumlah Pembayaran</label>
+            <input
+              type="number"
+              class="form-control jumlahPembayaran"
+              name="jumlahPembayaran"
+              required
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="hidden" class="id" name="id" />
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary">edit kursus</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
