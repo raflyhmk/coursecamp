@@ -34,7 +34,7 @@ module.exports = {
       }
       const isPasswordMatch = await bcrypt.compare(password, user.password);
       if (!isPasswordMatch) {
-        req.flash("alertMessage", "uncorrect password");
+        req.flash("alertMessage", "PASSWORD SALAH!!");
         req.flash("alertStatus", "danger");
         res.redirect("/admin/signin");
       }
