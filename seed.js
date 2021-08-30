@@ -71,7 +71,7 @@ var data = [
     documents: [
       {
         _id: mongoose.Types.ObjectId("61212815874332277cc5650c"),
-        image: "images/1629571013485.png",
+        image: "images/yatogami.png",
         name: "yato",
         JenisKelamin: "pria",
         nameKursus: "ekonomi",
@@ -80,7 +80,7 @@ var data = [
       },
       {
         _id: mongoose.Types.ObjectId("6126829ad9995b3efc1920f4"),
-        image: "images/1629913754727.jpg",
+        image: "images/rimuru.jpg",
         name: "rimuru tempest",
         JenisKelamin: "pria",
         nameKursus: "ilmu sihir",
@@ -89,7 +89,7 @@ var data = [
       },
       {
         _id: mongoose.Types.ObjectId("612683bbd9995b3efc1920fe"),
-        image: "images/1629914043374.jpg",
+        image: "images/roxy.jpg",
         name: "roxy migurdia",
         JenisKelamin: "wanita",
         nameKursus: "ilmu sihir",
